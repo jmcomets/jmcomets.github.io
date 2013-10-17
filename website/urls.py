@@ -6,11 +6,14 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-        # admin site
+        # admin app
         url(r'^admin/', include(admin.site.urls)),
 
         # redirect to blog by default
         url(r'^$', RedirectView.as_view(url='/blog/')),
+
+        # other apps
+        url(r'^blog/', include('blog.urls')),
         )
 
 # fix for heroku deployment (serve static files)
