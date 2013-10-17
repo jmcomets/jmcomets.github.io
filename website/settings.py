@@ -46,15 +46,19 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 # Database
 DATABASES = {
-    'default': {
-        'HOST': 'ec2-54-235-102-202.compute-1.amazonaws.com',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd521t9cvrb3ive',
-        'USER': 'rktcmzwcoaryhi',
-        'PASSWORD': 'GL2DChq-QmIS0n-FYiYWYzKLSP',
-        'PORT': '5432',
-    }
-}
+        'default': {
+            'HOST': 'ec2-54-235-102-202.compute-1.amazonaws.com',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'd521t9cvrb3ive',
+            'USER': 'rktcmzwcoaryhi',
+            'PASSWORD': 'GL2DChq-QmIS0n-FYiYWYzKLSP',
+            'PORT': '5432',
+            },
+        'dev': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            }
+        }
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
