@@ -1,14 +1,9 @@
 """
-WSGI config for website project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/dev/howto/deployment/wsgi/
+WSGI config for jmcomets.com project.
 """
 
-import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "website.settings")
+from os import environ as env
+env.setdefault('DJANGO_SETTINGS_MODULE', 'website.settings_no_debug')
 
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()

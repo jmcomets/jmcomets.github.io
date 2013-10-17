@@ -1,11 +1,5 @@
 """
-Django settings for website project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/dev/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/dev/ref/settings/
+Django debug settings for jmcomets.com project.
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -16,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '%v5a)9yst_i5(kbpf4*tj-9@_d_+t_lv&o)f1_xt377yu%szwd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # Hosts
@@ -29,6 +23,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.staticfiles',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -47,14 +42,6 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 DATABASES = {
         'default': {
-            'HOST': 'ec2-54-235-102-202.compute-1.amazonaws.com',
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'd521t9cvrb3ive',
-            'USER': 'rktcmzwcoaryhi',
-            'PASSWORD': 'GL2DChq-QmIS0n-FYiYWYzKLSP',
-            'PORT': '5432',
-            },
-        'dev': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
             }
@@ -69,3 +56,4 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
