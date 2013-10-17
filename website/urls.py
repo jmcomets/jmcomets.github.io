@@ -11,3 +11,10 @@ urlpatterns = patterns('',
         # redirect to blog by default
         url(r'^$', RedirectView.as_view(url='/blog/')),
         )
+
+# fix for heroku deployment (serve static files)
+if not settings.DEBUG:
+    urlpatterns += patterns('',
+            (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+                { 'document_root': settings.STATIC_ROOT }),
+            )
