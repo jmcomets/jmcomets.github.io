@@ -14,7 +14,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # Hosts
-ALLOWED_HOSTS = ['jmcomets.com', 'www.jmcomets.com']
+ALLOWED_HOSTS = ['*']
 
 # Applications
 INSTALLED_APPS = (
