@@ -7,7 +7,37 @@
     {% endblock %}
   </head>
   <body>
+    {# Body #}
     {% block body %}
+
+    {# Page #}
+    <div class="page">
+      {% block page %}
+
+      {# Header #}
+      {% block header %}
+      <header class="header">
+        {# TODO #}
+      </header>
+      {% endblock %}
+
+      {# Content #}
+      {% block content %}
+      <div class="content">
+        {# TODO #}
+      </div>
+      {% endblock %}
+
+      {# Footer #}
+      {% block footer %}
+      <footer class="footer">
+        {# TODO #}
+      </footer>
+      {% endblock %}
+
+      {% endblock %}
+    </div>
+
     {% endblock %}
   </body>
 </html>
