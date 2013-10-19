@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: @base-font-size;
+  font-family: @base-font;
+  color: @base-color;
+}
+
+html, body {
+  line-height: 1.5;
+  background-color: @base-bg-color;
+}
+
+.hX (@index) {
+  font-size: (@base-font-size + 10*(7 - @index));
+}
+
+h1 { .hX(1); }
+h2 { .hX(2); }
+h3 { .hX(3); }
+h4 { .hX(4); }
+h5 { .hX(5); }
+h6 { .hX(6); }
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+
+  caption, th {
+    text-align: center;
+  }
+
+  td {
+    text-align: left;
+  }
+
+  caption, th, td {
+    vertical-align: middle;
+  }
+}
+
+a img {
+  border: none;
+}
+
+*:focus {
+  outline: 0;
+}

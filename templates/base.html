@@ -7,9 +7,14 @@
     {# Head #}
     {% block head %}
 
-    {# CSS #}
-    {% block css %}
+    {# Static files #}
+    {% load staticfiles %}
+
+    {# Less #}
+    {% block less %}
+    <link type="text/css" rel="stylesheet/less" href="{% static "less/base.less" %}">
     {% endblock %}
+    <script type="text/javascript" src="{% static "js/less-1.4.2.min.js" %}"></script>
 
     {% endblock %}
   </head>
@@ -17,38 +22,33 @@
     {# Body #}
     {% block body %}
 
-    {# Page #}
-    <div class="page">
-      {% block page %}
-
-      {# Header #}
+    {# Header #}
+    <header class="header">
       {% block header %}
-      <header class="header">
-        {# TODO #}
-      </header>
-      {% endblock %}
-
-      {# Content #}
-      {% block content %}
-      <div class="content">
-        {# TODO #}
+      <div class="logo">
+        jmcomets.com
       </div>
       {% endblock %}
+    </header>
 
-      {# Footer #}
-      {% block footer %}
-      <footer class="footer">
-        {# TODO #}
-      </footer>
-      {% endblock %}
-
+    {# Content #}
+    <div class="content">
+      {% block content %}
+      {# TODO #}
       {% endblock %}
     </div>
 
-    {# JavaScript #}
-    {% block js %}
+    {# Footer #}
+    <footer class="footer">
+      {% block footer %}
+      {# TODO #}
+      {% endblock %}
+    </footer>
+
     {% endblock %}
 
+    {# JavaScript #}
+    {% block js %}
     {% endblock %}
   </body>
 </html>
