@@ -10,7 +10,7 @@ urlpatterns = patterns('',
         url(r'^admin/', include(admin.site.urls)),
 
         # redirect to blog by default
-        url(r'^$', RedirectView.as_view(url='/blog/')),
+        url(r'^$', RedirectView.as_view(url='/blog/', permanent=False)),
 
         # other apps
         url(r'^blog/', include('blog.urls')),

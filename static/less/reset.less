@@ -1,6 +1,4 @@
 * {
-  margin: 0;
-  padding: 0;
   font-size: @base-font-size;
   font-family: @base-font;
   color: @base-color;
@@ -10,17 +8,6 @@ html, body {
   line-height: 1.5;
   background-color: @base-bg-color;
 }
-
-.hX (@index) {
-  font-size: (@base-font-size + 10*(7 - @index));
-}
-
-h1 { .hX(1); }
-h2 { .hX(2); }
-h3 { .hX(3); }
-h4 { .hX(4); }
-h5 { .hX(5); }
-h6 { .hX(6); }
 
 table {
   border-collapse: separate;
@@ -43,6 +30,51 @@ a img {
   border: none;
 }
 
-*:focus {
-  outline: 0;
+// Typography
+
+.gigantic {
+  font-size: 110px;
+  line-height: 120px;
+  letter-spacing: -2px;
 }
+
+.huge, h1 {
+  font-size: 68px;
+  line-height: 72px;
+  letter-spacing: -1px;
+}
+
+.large, h2 {
+  font-size: 42px;
+  line-height: 48px;
+}
+
+.bigger, h3 {
+  font-size: 26px;
+  line-height: 36px;
+}
+
+.big, h4 {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.small, small {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+//
+// Configuration
+//
+
+@base-font: "Helvetica-Neue", "Helvetica", Arial, sans-serif;
+@base-font-size: 16px;
+@base-color: #111;
+@base-bg-color: darken(#800080, 20%);
+
+//
+// Frameless reset
+//
+
+@import "frameless.less";
