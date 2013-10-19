@@ -37,9 +37,16 @@
 
     {# Content #}
     <div class="content">
-      {% block content %}
-      {# TODO #}
-      {% endblock %}
+      <div class="content-main">
+        {% block content %}
+        {# TODO #}
+        {% endblock %}
+      </div>
+      <div class="sidebar">
+        {% block sidebar %}
+        {# TODO #}
+        {% endblock %}
+      </div>
     </div>
 
     {# Footer #}
