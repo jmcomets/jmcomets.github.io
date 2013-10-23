@@ -1,31 +1,50 @@
+a {
+  text-decoration: none;
+  color: @purple-2;
+  &:hover {
+  text-decoration: underline;
+  }
+}
+
+.title {
+  font-weight: bold;
+  color: @black;
+}
+
 .gigantic {
+  .title;
   font-size: @gigantic-font-size;
   line-height: @gigantic-line-height;
   letter-spacing: -2px;
 }
 
 .huge, h1 {
+  .title;
   font-size: @huge-font-size;
   line-height: @huge-line-height;
   letter-spacing: -1px;
 }
 
 .large, h2 {
+  .title;
   font-size: @large-font-size;
   line-height: @large-line-height;
 }
 
 .bigger, h3 {
+  .title;
   font-size: @bigger-font-size;
   line-height: @bigger-line-height;
 }
 
 .big, h4 {
+  .title;
   font-size: @big-font-size;
   line-height: @big-line-height;
 }
 
 .small, small {
+  .title;
   font-size: @small-font-size;
   line-height: @small-line-height;
 }

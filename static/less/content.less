@@ -1,22 +1,27 @@
 .content {
   .width(@content-cols);
-  margin: 20px auto;
-  background-color: @content-bg-color;
+  margin: @content-top auto;
+  padding: @content-padding;
+  position: relative;
 }
 
+@content-cols: 16;
+@content-top: 1.25em;
+@content-padding: @content-top/2 @content-top;
+
+//
+// Main/Sidebar
+//
+
 .content-main {
-  .width(@content-cols * 2/3);
-  background-color: @content-main-bg-color;
+  .width(@content-main-cols);
+  display: inline-block;
 }
 
 .content-sidebar {
-  .width(@content-cols * 1/3);
-  background-color: @content-sidebar-bg-color;
+  .width(@content-sidebar-cols);
+  display: inline-block;
 }
 
-@content-cols: 17;
-@content-bg-color: darken(#fff, 13%);
-
-@content-main-bg-color: lighten(@content-bg-color, 11%);
-
-@content-sidebar-bg-color: #fff;
+@content-sidebar-cols: @content-cols - @content-main-cols;
+@content-main-cols: 7/9 * @content-cols;
