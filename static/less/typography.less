@@ -1,10 +1,28 @@
+//
+// Links
+//
+
 a {
   text-decoration: none;
-  color: @purple-2;
   &:hover {
-  text-decoration: underline;
+    text-decoration: underline;
   }
+  &.pretty { .link-pretty; }
+  &.disabled { .link-disabled; }
 }
+
+.link-pretty {
+  color: @purple-3;
+}
+
+.link-disabled {
+  &:hover { text-decoration: none; }
+  color: @gray-4;
+}
+
+//
+// Titles
+//
 
 .title {
   font-weight: bold;
@@ -50,7 +68,7 @@ a {
 }
 
 //
-// Configuration
+// Title configuration
 //
 
 // Gigantic font style

@@ -1,5 +1,13 @@
+@import "typography.less";
+
 .nav-sidebar {
   ul {
     list-style-type: none;
+    li {
+      a {
+        .link-pretty;
+        &.disabled { .link-disabled; }
+      }
+    }
   }
 }
