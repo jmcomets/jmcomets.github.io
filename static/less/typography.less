@@ -21,50 +21,62 @@ a {
 }
 
 //
+// Lists
+//
+
+.list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.list-inlined {
+  .list-unstyled;
+  display: inline-block;
+  li {
+    float: left;
+    margin-left: 1em;
+  }
+}
+
+//
 // Titles
 //
 
-.title {
+.title(@font-size, @line-height) {
+  font-size: @font-size;
+  line-height: @line-height;
   font-weight: bold;
   color: @black;
+  * {
+    font-size: @font-size;
+  }
 }
 
 .gigantic {
-  .title;
-  font-size: @gigantic-font-size;
-  line-height: @gigantic-line-height;
+  .title(@gigantic-font-size, @gigantic-line-height);
   letter-spacing: -2px;
 }
 
 .huge, h1 {
-  .title;
-  font-size: @huge-font-size;
-  line-height: @huge-line-height;
+  .title(@huge-font-size, @huge-line-height);
   letter-spacing: -1px;
 }
 
 .large, h2 {
-  .title;
-  font-size: @large-font-size;
-  line-height: @large-line-height;
+  .title(@large-font-size, @large-line-height);
 }
 
 .bigger, h3 {
-  .title;
-  font-size: @bigger-font-size;
-  line-height: @bigger-line-height;
+  .title(@bigger-font-size, @bigger-line-height);
 }
 
 .big, h4 {
-  .title;
-  font-size: @big-font-size;
-  line-height: @big-line-height;
+  .title(@big-font-size, @big-line-height);
 }
 
 .small, small {
-  .title;
-  font-size: @small-font-size;
-  line-height: @small-line-height;
+  .title(@small-font-size, @small-line-height);
 }
 
 //
