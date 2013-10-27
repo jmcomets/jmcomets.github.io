@@ -48,7 +48,7 @@
 
     {# Mini game #}
     <div class="mini-game">
-      <canvas id="mini-game-canvas" width="500" height="300">
+      <canvas id="mini-game-canvas" width="800" height="600">
         <h2 id="mini-game-canvas-error">
           Sorry! Your browser doesn't support the &lt;canvas&gt; element.
           Consider switching to a <u>better</u> browser <i class="fa
@@ -83,7 +83,9 @@
     {# JavaScript #}
     {% block js %}
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="{% static "js/django.js" %}"></script>
     <script type="text/javascript" src="{% static "js/font-joke.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/easeljs-0.7.0.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/mini-game.js" %}"></script>
     {% endblock %}
   </body>
