@@ -11,8 +11,8 @@
         }
         return data;
       }) ({
-        'ganondorfSS': 'mini-game/spritesheets/ganondorf-lr.png',
-        'ganondorfSSdata': 'mini-game/spritesheets/ganondorf-lr.json'
+        'ganondorfSS': 'mini-game/spritesheets/ganondorf.png',
+        'ganondorfSSdata': 'mini-game/spritesheets/ganondorf.json'
       });
 
       // Main stage
@@ -40,13 +40,11 @@
       // Ganondorf instance
       // TODO
       var ganondorf = new _.Sprite(ganondorfSS, 'walk');
-
       ganondorf.on('tick', function(evt) {
-        ganondorf.x += 1;
       });
       stage.addChild(ganondorf);
 
-      // Game loop setup
+      // Game loop
       _.Ticker.timingMode = _.Ticker.RAF;
       _.Ticker.on('tick', function(evt) {
         stage.update(evt);
