@@ -19,8 +19,11 @@
         return data;
       }) (['ganondorf-left', 'ganondorf-right']);
 
-      // Keyboard event dispatcher (use to bind key events)
-      var keyboard = new _.EventDispatcher();
+      // Keyboard event dispatchers (use to bind key events)
+      var keydown = new _.EventDispatcher(),
+        keyup = new _.EventDispatcher();
+      // ... keyboard state
+      var keyboard = {};
 
       // Main stage
       var stage = new _.Stage(canvasId);
@@ -69,28 +72,36 @@
 
       // Ganondorf object
       var ganondorf = {
-        display: (function(ss) {
-          var cont = new _.Container();
-          cont.addChild(new _.Sprite(ss['left'], 'idle')).visible = false;
-          cont.addChild(new _.Sprite(ss['right'], 'idle')).visible = true;
-          stage.addChild(cont);
-          return cont
-        }) (ganondorfSS), state: {
-          direction: 'left',
+        display: null,
+        sprites: {
+          left: new _.Sprite(ganondorfSS['left'], 'idle'),
+          right: new _.Sprite(ganondorfSS['right'], 'idle')
+        },
+        state: {
+          direction: null,
           motion: 0,
           speed: 3
-        }, move: function(direction) {
-          assert(direction == 'left' || direction == 'right');
-          this.state.direction = direction;
-          this.state.motion = (direction == 'left') ? -1 : 1;
         }
       };
+      // ...display container
+      (function(sprites) {
+        var cont = new _.Container();
+        cont.addChild(sprites.left).visible = false;
+        cont.addChild(sprites.right).visible = true;
+        stage.addChild(cont);
+        ganondorf.display = cont;
+      }) (ganondorf.sprites);
 
       // Ganondorf events
       ganondorf.display.on('tick', function(evt) {
         var self = this,
           bounds = self.getBounds(),
           state = ganondorf.state;
+
+        // Continuous events
+        state.motion = 0;
+        if (keyboard.left) { state.motion -= 1; }
+        if (keyboard.right) { state.motion += 1; }
 
         // Move sprite registration point to center
         self.regX = bounds.width/2;
@@ -102,16 +113,27 @@
             stage.height/2 - bounds.height/2),
           -stage.height/2 + bounds.height/2);
 
-        // Left/Right flip depending on direction
+        // Direction change
+        if (state.motion != 0) {
+          if (keyboard.left) {
+            state.direction = 'left';
+          } else {
+            state.direction = 'right';
+          }
+        }
+
+        // Left/Right sprite selection
+        (function(sprites) {
+          if (state.direction == 'left') {
+            sprites.left.visible = true;
+            sprites.right.visible = false;
+          } else {
+            sprites.left.visible = false;
+            sprites.right.visible = true;
+          }
+        }) (ganondorf.sprites);
       });
-      // ...key events
-      keyboard.on('left', function() {
-        ganondorf.move('left');
-      });
-      keyboard.on('right', function() {
-        ganondorf.move('right');
-      });
-      keyboard.on('up', function() {
+      keydown.on('up', function() {
         // jump
       });
 
@@ -122,19 +144,37 @@
       });
 
       // Keyboard events
-      $(document).on('keydown', function(e) {
-        // Don't handle if game is paused
-        if (_.Ticker.getPaused()) { return; }
+      (function() {
+        // Codes to handle
+        var codes = {
+          left: 37,
+          right: 39,
+          up: 38,
+          down: 40
+        };
 
-        if (e.keyCode == 37) { keyboard.dispatchEvent('left'); }
-        else if (e.keyCode == 39) { keyboard.dispatchEvent('right'); }
-        else if (e.keyCode == 38) { keyboard.dispatchEvent('up'); }
-        else if (e.keyCode == 40) { keyboard.dispatchEvent('down'); }
-        else { return true; }
+        $(document).on('keydown', function(e) {
+          // Don't handle if game is paused
+          if (_.Ticker.getPaused()) { return; }
 
-        // Don't handle other keyboard events
-        return false;
-      });
+          for (var key in codes) {
+            if (codes[key] != e.keyCode) { continue; }
+            if (keyboard[key] === false) { keydown.dispatchEvent(key); }
+            keyboard[key] = true;
+            return false;
+          }
+        }).on('keyup', function(e) {
+          // Don't handle if game is paused
+          if (_.Ticker.getPaused()) { return; }
+
+          for (var key in codes) {
+            if (codes[key] != e.keyCode) { continue; }
+            if (keyboard[key] === true) { keyup.dispatchEvent(key); }
+            keyboard[key] = false;
+            return false;
+          }
+        });
+      }) ();
     }) ('mini-game-canvas', createjs);
 
     // UI integration
