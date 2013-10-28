@@ -67,13 +67,15 @@
         }
       });
 
-      // Ganondorf sprite
-      var ganondorf = new _.Sprite(ganondorfSS['left'], 'idle');
-      stage.addChild(ganondorf);
-
-      // Ganondorf logic
-      var ganondorfLogic = {
-        state: {
+      // Ganondorf object
+      var ganondorf = {
+        display: (function(ss) {
+          var cont = new _.Container();
+          cont.addChild(new _.Sprite(ss['left'], 'idle')).visible = false;
+          cont.addChild(new _.Sprite(ss['right'], 'idle')).visible = true;
+          stage.addChild(cont);
+          return cont
+        }) (ganondorfSS), state: {
           direction: 'left',
           motion: 0,
           speed: 3
@@ -85,10 +87,10 @@
       };
 
       // Ganondorf events
-      ganondorf.on('tick', function(evt) {
+      ganondorf.display.on('tick', function(evt) {
         var self = this,
           bounds = self.getBounds(),
-          state = ganondorfLogic.state;
+          state = ganondorf.state;
 
         // Move sprite registration point to center
         self.regX = bounds.width/2;
@@ -104,10 +106,10 @@
       });
       // ...key events
       keyboard.on('left', function() {
-        ganondorfLogic.move('left');
+        ganondorf.move('left');
       });
       keyboard.on('right', function() {
-        ganondorfLogic.move('right');
+        ganondorf.move('right');
       });
       keyboard.on('up', function() {
         // jump
