@@ -1,0 +1,8 @@
+{% load bbcode %}
+
+<article class="post">
+  <h4 class="post-title">{{ post.title }}</h4>
+  <p class="post-content">
+    {% bbcode post.content %}
+  </p>
+</article>
