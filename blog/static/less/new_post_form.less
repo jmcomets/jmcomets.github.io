@@ -1,0 +1,25 @@
+@import "base";
+@import "content";
+
+.post-new-form {
+  margin: 0 auto;
+
+  @field-vertical-margin: 1em;
+
+  label {
+    margin-top: @field-vertical-margin;
+  }
+
+  input[type='text'] {
+    margin-bottom: @field-vertical-margin;
+  }
+
+  label, input {
+    display: block;
+  }
+
+  textarea {
+    .width(@content-cols * 2/3);
+    height: 10em;
+  }
+}

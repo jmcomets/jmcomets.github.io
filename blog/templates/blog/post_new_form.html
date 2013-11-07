@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+New post
+{% endblock %}
+
+{% load staticfiles %}
+
+{% block less %}
+{{ block.super }}
+<link type="text/css" rel="stylesheet/less" href="{% static "less/new_post_form.less" %}">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "vendor/SCEditor/minified/themes/default.min.css" %}" type="text/css" media="all" />
+<script type="text/javascript" src="{% static "vendor/SCEditor/minified/jquery.sceditor.bbcode.min.js" %}"></script>
+<script type="text/javascript">
+  $(function() {
+    $("textarea").sceditor({
+      plugins: "bbcode",
+      style: '{% static "vendor/SCEditor/minified/jquery.sceditor.default.min.css" %}',
+      emoticons: '{% static "vendor/SCEditor/minified/emoticons" %}',
+      resizeWidth: false
+    });
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+
+<h3>New post</h3>
+
+<form class="post-new-form" action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Create">
+</form>
+
+{% endblock %}

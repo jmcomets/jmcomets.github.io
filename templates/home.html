@@ -6,23 +6,14 @@ Home
 
 {% block content %}
 
+{% for post in posts %}
 <article class="post">
-  <h4 class="post-title">Under contruction</h4>
+  <h4 class="post-title">{{ post.title }}</h4>
   <p class="post-content">
-    This website is currently under active development, come back soon !
-    &nbsp;
-    <i class="fa fa-smile-o"></i>
-  </p>
+    {{ post.content }}
   </p>
 </article>
-
-<article class="post">
-  <h4 class="post-title">A sample post</h4>
-  <p class="post-content">
-    This is a basic post with some content to make it look a little long.
-  </p>
-  </p>
-</article>
+{% endfor %}
 
 {% endblock %}
 
@@ -30,9 +21,9 @@ Home
 
 <nav class="nav-sidebar">
   <ul>
-    <li><a href="#" class="disabled">Foo</a></li>
-    <li><a href="#">Bar</a></li>
-    <li><a href="#">Baz</a></li>
+    <li><a href="https://github.com/jmcomets">Github</a></li>
+    <li><a href="https://plus.google.com/116899803883440989724">Google</a></li>
+    <li><a href="http://www.linkedin.com/profile/view?id=222383457">LinkedIn</a></li>
   </ul>
 </nav>
 

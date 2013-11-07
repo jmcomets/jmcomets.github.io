@@ -1,5 +1,9 @@
-from django.views.generic import TemplateView, ListView, DetailView
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.contrib.admin.views.decorators import staff_member_required
+from django.views.generic import (TemplateView, ListView,
+                                  DetailView, CreateView)
 
 from blog.models import Post
 
@@ -7,9 +11,9 @@ class HomeView(TemplateView):
     template_name = 'home.html'
     http_method_names = ['get']
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, posts_limit=10, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['posts'] = Post.objects.all()
+        context['posts'] = Post.objects.all()[:posts_limit]
         return context
 home = HomeView.as_view()
 
@@ -47,3 +51,12 @@ class ShowPostView(DetailView):
     template_name = 'show_post.html'
     context_object_name = 'post'
 show_post = ShowPostView.as_view()
+
+class NewPostView(CreateView):
+    model = Post
+    template_name_suffix = '_new_form'
+
+    @method_decorator(staff_member_required)
+    def dispatch(self, *args, **kwargs):
+        return super(NewPostView, self).dispatch(*args, **kwargs)
+new_post = NewPostView.as_view()

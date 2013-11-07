@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% with site_name="site-name.com" %}
+{% with site_name="jmcomets.com" %}
 <html>
   <head>
     <meta charset="utf-8">
@@ -17,9 +17,10 @@
 
     {# Less #}
     {% block less %}
-    <link type="text/css" rel="stylesheet/less" href="{% static "less/base.less" %}">
+    <link type="text/css" rel="stylesheet/less" href="{% static "less/main.less" %}">
+    <link type="text/css" rel="stylesheet/less" href="{% static "less/mini-game.less" %}">
     {% endblock %}
-    <script type="text/javascript" src="{% static "js/less-1.4.2.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/less-1.4.2.min.js" %}"></script>
 
     {# CSS #}
     {% block css %}
@@ -41,7 +42,7 @@
       <ul class="navbar-menu">
         <li><a href="/blog/categories">Categories</a></li>
         <li><a href="/blog/about">About Me</a></li>
-        <li><a id="mini-game-toggle" href="#/mini-game">Fun &nbsp; <i class="fa fa-gamepad"></i></a></li>
+        <li><a id="mini-game-toggle" class="disabled" href="#/mini-game">Fun &nbsp; <i class="fa fa-gamepad"></i></a></li>
       </ul>
       {% endblock %}
     </nav>
@@ -61,12 +62,10 @@
     <div class="content">
       <section class="content-main">
         {% block content %}
-        {# TODO #}
         {% endblock %}
       </section>
       <section class="content-sidebar">
         {% block sidebar %}
-        {# TODO #}
         {% endblock %}
       </section>
     </div>
@@ -74,7 +73,14 @@
     {# Footer #}
     <footer class="footer">
       {% block footer %}
-      <a id="font-joke" href="#">Cool font eh ?</a>
+      <ul class="footer-links">
+        <li><a id="font-joke" href="#">Cool font eh ?</a></li>
+        {% if not user.is_staff %}
+        <li><a href="{% url "admin:index" %}">Admin</a></li>
+        {% else %}
+        <li><a href="{% url "admin:logout" %}">Logout</a></li>
+        {% endif %}
+      </ul>
       {% endblock %}
     </footer>
 
@@ -82,11 +88,13 @@
 
     {# JavaScript #}
     {% block js %}
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="{% static "vendor/jquery-1.10.1.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/globals.js" %}"></script>
     <script type="text/javascript" src="{% static "js/font-joke.js" %}"></script>
-    <script type="text/javascript" src="{% static "mini-game/easeljs-0.7.0.min.js" %}"></script>
+    {% comment %}
+    <script type="text/javascript" src="{% static "vendor/easeljs-0.7.0.min.js" %}"></script>
     <script type="text/javascript" src="{% static "mini-game/mini-game.js" %}"></script>
+    {% endcomment %}
     {% endblock %}
   </body>
 </html>

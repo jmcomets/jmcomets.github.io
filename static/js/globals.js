@@ -13,3 +13,9 @@ function staticURI(url, encode) {
   if (encode) { url = encodeURI(url); }
   return url;
 }
+
+(function($) {
+  $('a.disabled').on('click', function() {
+    return false;
+  });
+}) (jQuery);
