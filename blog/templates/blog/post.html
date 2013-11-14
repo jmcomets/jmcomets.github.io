@@ -1,9 +1,9 @@
-{% load bbcode %}
+{% load markup %}
 
 <article class="post">
   <h4 class="post-title">{{ post.title }}</h4>
   <p class="post-content">
-    {% bbcode post.content %}
+    {{ post.content | markdown:"safe" }}
   </p>
   <small class="post-date">Created on {{ post.created_on }}</small>
 </article>
