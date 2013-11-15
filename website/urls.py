@@ -13,7 +13,7 @@ urlpatterns = patterns('',
         url(r'^$', RedirectView.as_view(url='/blog/', permanent=False)),
 
         # other apps
-        url(r'^blog/', include('blog.urls')),
+        url(r'^blog/', include('blog.urls', 'blog')),
         )
 
 # fix for heroku deployment (serve static files)

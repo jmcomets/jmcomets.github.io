@@ -4,7 +4,18 @@
 Home
 {% endblock %}
 
+{% load staticfiles %}
+
+{% block less %}
+{{ block.super }}
+<link type="text/css" rel="stylesheet/less" href="{% static "less/home.less" %}">
+{% endblock %}
+
 {% block content %}
+
+{% if user.is_staff %}
+<a class="link-new-post" href="{% url "blog:create_post" %}">New post</a>
+{% endif %}
 
 {% for post in posts %}
 {% include "blog/post.html" %}
