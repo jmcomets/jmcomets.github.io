@@ -25,7 +25,7 @@ about = AboutView.as_view()
 class ShowPostView(DetailView):
     model = Post
     http_method_names = ['get']
-    template_name = 'show_post.html'
+    template_name = 'blog/show_post.html'
     context_object_name = 'post'
 show_post = ShowPostView.as_view()
 
