@@ -3,8 +3,9 @@
 (function($) {
   $(window).load(function() {
     $('#font-joke').one('click', function() {
-      less.modifyVars({ '@base-font': 'Comic Sans Ms' });
+      $('head').append('<style>*{ font-family: "Comic Sans Ms" !important; }</style>');
       $(this).text('Sucka').append('&nbsp; <i class="fe fe-emo-devil"></i>');
+      return false;
     });
   });
 }) (jQuery);
