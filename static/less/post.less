@@ -5,12 +5,46 @@
 }
 
 .post-title {
-  .bigger;
-  margin-bottom: 0.4em;
+  margin-bottom: @post-content-padding;
+  font-size: @post-title-font-size;
+  line-height: @post-title-line-height;
 }
 
+@post-title-font-size: @bigger-font-size;
+@post-title-line-height: @bigger-line-height;
+
 .post-content {
-  padding: 0.4em;
+  padding: @post-content-padding;
   a { .link-pretty; }
   ul, ol { margin: 1.1em; }
+
+  //
+  // Headings
+  //
+  .gigantic {
+    .title(@post-title-font-size*@gigantic-font-size / @gigantic-font-size,
+      @post-title-line-height*@gigantic-line-height / @gigantic-line-height);
+  }
+
+  .huge, h1 {
+    .title(@post-title-font-size*@huge-font-size / @gigantic-font-size,
+      @post-title-line-height*@huge-line-height / @gigantic-line-height);
+  }
+
+  .large, h2 {
+    .title(@post-title-font-size*@large-font-size / @gigantic-font-size,
+      @post-title-line-height*@large-line-height / @gigantic-line-height);
+  }
+
+  .bigger, h3 {
+    .title(@post-title-font-size*@bigger-font-size / @gigantic-font-size,
+      @post-title-line-height*@bigger-line-height / @gigantic-line-height);
+  }
+
+  .big, h4 {
+    .title(@post-title-font-size*@big-font-size / @gigantic-font-size,
+      @post-title-font-size*@big-line-height / @gigantic-line-height);
+  }
 }
+
+@post-content-padding: 0.4em;
