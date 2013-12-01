@@ -39,4 +39,4 @@ class Command(BaseCommand):
         try:
             post.save()
         except IntegrityError as e:
-            print 'Post cannot be created, reason: %s' % e
+            raise CommandError('Post cannot be created, reason: %s' % e)
