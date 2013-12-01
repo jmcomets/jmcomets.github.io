@@ -21,6 +21,7 @@ def get_external_content(filename=None, initial_content=''):
             fp.writelines(initial_content)
         else:
             fp.write(initial_content)
+        fp.seek(0)
 
     # edit tmpfile
     editor = os.environ.get('EDITOR', 'vi')
