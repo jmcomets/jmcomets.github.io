@@ -26,7 +26,7 @@ class Command(BaseCommand):
             except (IntegrityError, Category.DoesNotExist) as e:
                 raise CommandError('Category cannot be deleted, reason: %s' % e)
             else:
-                self.stdout.write('Category "%s" deleted' % options['deleted'])
+                self.stdout.write('Category "%s" deleted' % options['delete'])
         elif 'list' in options:
             categories = Category.objects.all()
             if not categories:
