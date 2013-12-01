@@ -8,7 +8,8 @@ def validate_no_commas(value):
         raise ValidationError('%s contains commas' % value)
 
 class Category(models.Model):
-    title = models.CharField(max_length=80, validators=[validate_no_commas])
+    title = models.CharField(max_length=80,
+            unique=True, validators=[validate_no_commas])
 
     class Meta:
         verbose_name_plural = 'categories'
