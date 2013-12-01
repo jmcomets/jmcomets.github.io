@@ -96,7 +96,9 @@
     {# Prettify #}
     {% block prettify %}
     <script type="text/javascript" src="{% static "vendor/prettify.min.js" %}"></script>
+    {% comment %}
     <link type="text/css" rel="stylesheet" href="{% static "css/sunburst.css" %}">
+    {% endcomment %}
     <script type="text/javascript" src="{% static "js/auto_prettify.js" %}"></script>
     {% endblock %}
 
