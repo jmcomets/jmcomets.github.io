@@ -90,9 +90,20 @@
 
     {# JavaScript #}
     {% block js %}
-    <script src="{% static "vendor/jquery-1.10.1.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "vendor/jquery-1.10.1.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/globals.js" %}"></script>
+
+    {# Prettify #}
+    {% block prettify %}
+    <script type="text/javascript" src="{% static "vendor/prettify.min.js" %}"></script>
+    <link type="text/css" rel="stylesheet" href="{% static "css/sunburst.css" %}">
+    <script type="text/javascript" src="{% static "js/auto_prettify.js" %}"></script>
+    {% endblock %}
+
+    {# Comic Sans Ms joke #}
     <script type="text/javascript" src="{% static "js/font-joke.js" %}"></script>
+
+    {# Mini-game #}
     {% comment %}
     <script type="text/javascript" src="{% static "vendor/easeljs-0.7.0.min.js" %}"></script>
     <script type="text/javascript" src="{% static "mini-game/mini-game.js" %}"></script>
