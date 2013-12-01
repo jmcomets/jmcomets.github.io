@@ -21,7 +21,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(editable=False, unique=True)
     image = models.ImageField(upload_to='posts', blank=True, null=False)
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True, editable=True)
     content = models.TextField()
     categories = models.ManyToManyField(Category)
 
