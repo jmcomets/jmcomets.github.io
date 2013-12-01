@@ -1,9 +1,14 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse_lazy
 
+def validate_no_commas(value):
+    if ',' in value:
+        raise ValidationError('%s contains commas' % value)
+
 class Category(models.Model):
-    title = models.CharField(max_length=80)
+    title = models.CharField(max_length=80, validators=[validate_no_commas])
 
     class Meta:
         verbose_name_plural = 'categories'
@@ -26,8 +31,11 @@ class Post(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+        self.slug = self.get_slug()
         super(Post, self).save(*args, **kwargs)
+
+    def get_slug(self):
+        return self.slug or slugify(self.title)
 
     def get_absolute_url(self):
         return reverse_lazy('blog:show_post', kwargs={'slug': self.slug})
