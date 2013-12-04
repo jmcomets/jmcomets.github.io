@@ -12,14 +12,11 @@ a {
 }
 
 .link-pretty {
-  color: @purple-3;
-  * { color: @gray-3 };
+  .make-link-pretty();
 }
 
 .link-disabled {
-  &:hover { text-decoration: none; }
-  color: @gray-4;
-  * { color: @gray-4 };
+  .make-link-disabled();
 }
 
 //
@@ -27,87 +24,42 @@ a {
 //
 
 .list-unstyled {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+  .make-list-unstyled();
 }
 
 .list-inlined {
-  .list-unstyled;
-  display: inline-block;
-  li {
-    float: left;
-    margin-left: 1em;
-  }
+  .make-list-inlined();
 }
 
 //
 // Titles
 //
 
-.title(@font-size, @line-height) {
-  font-size: @font-size;
-  line-height: @line-height;
-  font-weight: bold;
-  color: @black;
-  * {
-    font-size: @font-size;
-  }
-}
-
 .gigantic {
-  .title(@gigantic-font-size, @gigantic-line-height);
+  .make-title(@gigantic-font-size, @gigantic-line-height);
   letter-spacing: -2px;
 }
 
 .huge, h1 {
-  .title(@huge-font-size, @huge-line-height);
+  .make-title(@huge-font-size, @huge-line-height);
   letter-spacing: -1px;
 }
 
 .large, h2 {
-  .title(@large-font-size, @large-line-height);
+  .make-title(@large-font-size, @large-line-height);
 }
 
 .bigger, h3 {
-  .title(@bigger-font-size, @bigger-line-height);
+  .make-title(@bigger-font-size, @bigger-line-height);
 }
 
 .big, h4 {
-  .title(@big-font-size, @big-line-height);
+  .make-title(@big-font-size, @big-line-height);
 }
 
 .small, small {
-  .title(@small-font-size, @small-line-height);
+  .make-title(@small-font-size, @small-line-height);
 }
-
-//
-// Title configuration
-//
-
-// Gigantic font style
-@gigantic-font-size: 110px;
-@gigantic-line-height: 120px;
-
-// ~h1 font style
-@huge-font-size: 68px;
-@huge-line-height: 72px;
-
-// ~h2 font style
-@large-font-size: 42px;
-@large-line-height: 48px;
-
-// ~h3 font style
-@bigger-line-height: 36px;
-@bigger-font-size: 26px;
-
-// ~h4 font style
-@big-line-height: 30px;
-@big-font-size: 22px;
-
-// ~small font style
-@small-font-size: 13px;
-@small-line-height: 18px;
 
 //
 // Code
