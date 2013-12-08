@@ -18,28 +18,33 @@
   //
   // Headings
   //
+  .make-post-title(@font-size, @line-height) {
+    .make-title(@font-size, @line-height);
+    margin: 0.5em 0;
+  }
+
   .gigantic {
-    .make-title(@post-title-font-size*@gigantic-font-size / @gigantic-font-size,
+    .make-post-title(@post-title-font-size*@gigantic-font-size / @gigantic-font-size,
       @post-title-line-height*@gigantic-line-height / @gigantic-line-height);
   }
 
   .huge, h1 {
-    .make-title(@post-title-font-size*@huge-font-size / @gigantic-font-size,
+    .make-post-title(@post-title-font-size*@huge-font-size / @gigantic-font-size,
       @post-title-line-height*@huge-line-height / @gigantic-line-height);
   }
 
   .large, h2 {
-    .make-title(@post-title-font-size*@large-font-size / @gigantic-font-size,
+    .make-post-title(@post-title-font-size*@large-font-size / @gigantic-font-size,
       @post-title-line-height*@large-line-height / @gigantic-line-height);
   }
 
   .bigger, h3 {
-    .make-title(@post-title-font-size*@bigger-font-size / @gigantic-font-size,
+    .make-post-title(@post-title-font-size*@bigger-font-size / @gigantic-font-size,
       @post-title-line-height*@bigger-line-height / @gigantic-line-height);
   }
 
   .big, h4 {
-    .make-title(@post-title-font-size*@big-font-size / @gigantic-font-size,
+    .make-post-title(@post-title-font-size*@big-font-size / @gigantic-font-size,
       @post-title-font-size*@big-line-height / @gigantic-line-height);
   }
 }
