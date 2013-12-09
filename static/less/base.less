@@ -2,6 +2,12 @@
 @import "elements";
 @import "mixins";
 
-.width(@cols) {
-  // TODO
+@font-size: @base-font-size;
+@em: @font-size * 1em;
+
+@column: 50;
+@gutter: 30;
+
+.width(@cols: 1) {
+  max-width: (@cols * (@column + @gutter) - @gutter) / @em;
 }
