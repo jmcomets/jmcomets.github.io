@@ -1,0 +1,37 @@
+# General Jekyll Config
+markdown: kramdown
+highlighter: pygments
+url: http://jmcomets.com
+lsi: false
+exclude: [LICENSE, CNAME, README.md, .gitignore]
+
+# Theme customization - please change from the defaults!
+theme:
+  # Color for top bar, links, etc
+  highlight_color: '#14689C'
+
+  # Profile links on the left sidebar, leave blank to ignore
+  social:
+    github: jmcomets
+    #bitbucket: jmcomets
+    #hacker_news:
+    #stackexchange:
+    stackoverflow: 1441984
+    twitter: jmcomets
+    #facebook: jmcomets
+    #tumblr:
+    #linkedin: jean-marie-comets
+    #gplus:
+
+  # "Hi, I'm _______"
+  name: Jean-Marie Comets
+  email: jm_comets@hotmail.com
+  tagline: "weak opinions, strongly held"
+
+  # Google Analytics key, leave blank to ignore
+  #google_analytics_key:
+
+  # Toggle "Postings are my own" disclaimer in footer
+  show_disclaimer: true
+
+# vim: ft=yaml et sw=2 sts=2
