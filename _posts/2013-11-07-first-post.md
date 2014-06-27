@@ -1,4 +1,7 @@
-First post !
+---
+layout: post
+title: First post !
+---
 
 Well, since I guess this is gonna be the first of a long series of posts for
 "the web", I should probably start out by introducing myself :

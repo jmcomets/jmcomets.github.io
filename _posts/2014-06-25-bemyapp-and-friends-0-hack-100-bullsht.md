@@ -1,4 +1,7 @@
-BeMyApp and friends: 0 % hack, 100 % bullsh*t
+---
+layout: post
+title: BeMyApp and friends: 0 % hack, 100 % bullsh*t
+---
 
 Back after many months NOT blogging, which isn't really what I had in mind when
 I put started building this website. I've got a ton of projects pending, and

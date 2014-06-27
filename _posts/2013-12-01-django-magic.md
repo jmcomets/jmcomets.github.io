@@ -1,4 +1,7 @@
-Django magic
+---
+layout: post
+title: Django magic
+---
 
 Since this morning I've been working on this website, which happens to be built
 with [Django](https://www.djangoproject.com/). My goals, set at 10:30 today:

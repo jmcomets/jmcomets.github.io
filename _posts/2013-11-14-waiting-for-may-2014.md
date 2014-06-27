@@ -1,4 +1,7 @@
-Waiting for may 2014
+---
+layout: post
+title: Waiting for may 2014
+---
 
 Recently I've been looking up possible internships for my 2014 planned
 internship, and have (I hope) found a pretty cool one. :)
