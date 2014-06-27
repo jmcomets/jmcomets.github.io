@@ -1,4 +1,7 @@
-Using Vim to increase productivity
+---
+layout: post
+title: Using Vim to increase productivity
+---
 
 This may seem redundant, knowing there are [many blog posts] on the subject,
 but I just couldn't help myself. So I guess I'll keep it short and simple, and
