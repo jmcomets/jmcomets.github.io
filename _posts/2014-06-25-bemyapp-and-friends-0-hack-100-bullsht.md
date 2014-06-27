@@ -1,6 +1,6 @@
 ---
 layout: post
-title: BeMyApp and friends: 0 % hack, 100 % bullshit
+title: "BeMyApp and friends: 0 % hack, 100 % bullshit"
 ---
 
 Back after many months NOT blogging, which isn't really what I had in mind when
