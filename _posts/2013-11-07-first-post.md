@@ -30,9 +30,3 @@ Anyways, I'm in my school's movie club (check out the
 of awesome/funny/weird/whatever types of movies. Just saying that some I might
 post about may not be worth watching, depending on the tone used in the prose
 and the IMDb rating...
-
-
-Quickly finishing this post, I'd like to leave a short note concerning the
-"fun" link in the top menu. With one of my current roommates, we thought it
-would be cool to setup a mini-game on the website, so that should be coming
-around (hopefully)...though I could use some artwork. ;)
