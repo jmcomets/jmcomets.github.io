@@ -1,0 +1,70 @@
+@import "colors";
+
+//
+// Base
+//
+@base-font: "Helvetica-Neue", "Helvetica", Arial, sans-serif;
+@base-font-size: 16px;
+@base-color: @gray;
+@base-bg-color: @white;
+
+//
+// Titles
+//
+
+// Gigantic font style
+@gigantic-font-size: 110px;
+@gigantic-line-height: 120px;
+
+// ~h1 font style
+@huge-font-size: 68px;
+@huge-line-height: 72px;
+
+// ~h2 font style
+@large-font-size: 42px;
+@large-line-height: 48px;
+
+// ~h3 font style
+@bigger-line-height: 36px;
+@bigger-font-size: 26px;
+
+// ~h4 font style
+@big-line-height: 30px;
+@big-font-size: 22px;
+
+// ~small font style
+@small-font-size: 13px;
+@small-line-height: 18px;
+
+//
+// Navbar
+//
+
+@navbar-color: @white;
+@navbar-bg-color: @purple-5;
+@navbar-brand-font-size: @base-font-size + 10;
+
+//
+// Content: two-column layout
+//
+
+@content-cols: 16;
+@content-top: 1.25em;
+@content-padding: @content-top/2 @content-top;
+@content-sidebar-cols: @content-cols - @content-main-cols;
+@content-main-cols: 7/9 * @content-cols;
+
+//
+// Footer
+//
+
+@footer-height: 3em;
+@footer-bg-color: darken(#fff, 10%);
+
+//
+// Posts
+//
+
+@post-title-font-size: @bigger-font-size;
+@post-title-line-height: @bigger-line-height;
+@post-content-padding: 0.4em;

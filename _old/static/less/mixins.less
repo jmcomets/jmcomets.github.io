@@ -1,0 +1,47 @@
+//
+// Links
+//
+
+.make-link-pretty(@link-color: @purple-3, @base-color: @gray-3) {
+  color: @link-color;
+  * { color: @base-color; };
+}
+
+.make-link-disabled(@color: @gray-4) {
+  &:hover { text-decoration: none; }
+  color: @color;
+  * { color: @color; };
+}
+
+//
+// Lists
+//
+
+.make-list-unstyled() {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.make-list-inlined() {
+  .make-list-unstyled;
+  display: inline-block;
+  li {
+    float: left;
+    margin-left: 1em;
+  }
+}
+
+//
+// Titles
+//
+
+.make-title(@font-size, @line-height) {
+  font-size: @font-size;
+  line-height: @line-height;
+  font-weight: bold;
+  color: @black;
+  * {
+    font-size: @font-size;
+  }
+}

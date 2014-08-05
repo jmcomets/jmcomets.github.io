@@ -1,0 +1,45 @@
+.post {
+  padding: 0.625em;
+  margin-top: 1.2em;
+  &:first-child { margin-top: 0.3em; }
+}
+
+.post-title {
+  margin-bottom: @post-content-padding;
+  font-size: @post-title-font-size;
+  line-height: @post-title-line-height;
+}
+
+.post-content {
+  padding: @post-content-padding;
+  a { .link-pretty; }
+  ul, ol { margin: 1.1em; }
+
+  //
+  // Headings
+  //
+  .make-post-title(@font-size, @line-height) {
+    .make-title(@font-size, @line-height);
+    margin: 0.5em 0;
+  }
+
+  .gigantic {
+    .make-post-title(@gigantic-font-size, @gigantic-line-height);
+  }
+
+  .huge, h1 {
+    .make-post-title(@huge-font-size, @huge-line-height);
+  }
+
+  .large, h2 {
+    .make-post-title(@large-font-size, @large-line-height);
+  }
+
+  .bigger, h3 {
+    .make-post-title(@bigger-font-size, @bigger-line-height);
+  }
+
+  .big, h4 {
+    .make-post-title(@big-font-size, @big-line-height);
+  }
+}

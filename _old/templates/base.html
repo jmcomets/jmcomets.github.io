@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% with site_name="jmcomets.com" %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} | {{ site_name }}</title>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {# Head #}
+    {% block head %}
+
+    {# Static files #}
+    {% load staticfiles %}
+
+    {# Less #}
+    {% block less %}
+    <link type="text/css" rel="stylesheet/less" href="{% static "less/main.less" %}">
+    <link type="text/css" rel="stylesheet/less" href="{% static "less/mini-game.less" %}">
+    {% endblock %}
+    <script type="text/javascript" src="{% static "vendor/less-1.4.2.min.js" %}"></script>
+
+    {# CSS #}
+    {% block css %}
+    <link type="text/css" rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+    <link type="text/css" rel="stylesheet" href="{% static "css/fontelico.min.css" %}">
+    {% endblock %}
+
+    {% endblock %}
+  </head>
+  <body>
+    {# Body #}
+    {% block body %}
+
+    {# Navbar #}
+    <nav class="navbar">
+      {% block header %}
+      <a href="/" class="navbar-brand">
+        {{ site_name }}
+      </a>
+      <ul class="navbar-menu">
+        <li><a class="disabled" href="#/blog/categories">Categories</a></li>
+        <li><a href="/blog/about">About Me</a></li>
+        <li><a id="mini-game-toggle" class="disabled" href="#/mini-game">Fun &nbsp; <i class="fa fa-gamepad"></i></a></li>
+      </ul>
+      {% endblock %}
+    </nav>
+
+    {# Mini game #}
+    <div class="mini-game">
+      <canvas id="mini-game-canvas" width="700" height="400">
+        <h2 id="mini-game-canvas-error">
+          Sorry! Your browser doesn't support the &lt;canvas&gt; element.
+          Consider switching to a <u>better</u> browser <i class="fa
+            fa-smile-o"></i>
+        </canvas>
+      </div>
+    </div>
+
+    {# Content #}
+    <div class="content">
+      <section class="content-main">
+        {% block content %}
+        {% endblock %}
+      </section>
+      <section class="content-sidebar">
+        {% block sidebar %}
+        {% endblock %}
+      </section>
+    </div>
+
+    {# Footer #}
+    <footer class="footer">
+      {% block footer %}
+      <ul class="footer-links">
+        <li><a id="font-joke" href="#">Cool font eh ?</a></li>
+        <li>
+          <a href="{% url "admin:index" %}">Admin</a>
+          {% if user.is_staff %}
+          <a href="{% url "admin:logout" %}">[logout]</a>
+          {% endif %}
+        </li>
+      </ul>
+      {% endblock %}
+    </footer>
+
+    {% endblock %}
+
+    {# JavaScript #}
+    {% block js %}
+    <script type="text/javascript" src="{% static "vendor/jquery-1.10.1.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/globals.js" %}"></script>
+
+    {# Prettify #}
+    {% block prettify %}
+    <script type="text/javascript" src="{% static "vendor/prettify.min.js" %}"></script>
+    {% comment %}
+    <link type="text/css" rel="stylesheet" href="{% static "css/sunburst.css" %}">
+    {% endcomment %}
+    <script type="text/javascript" src="{% static "js/auto_prettify.js" %}"></script>
+    {% endblock %}
+
+    {# Comic Sans Ms joke #}
+    <script type="text/javascript" src="{% static "js/font-joke.js" %}"></script>
+
+    {# Mini-game #}
+    {% comment %}
+    <script type="text/javascript" src="{% static "vendor/easeljs-0.7.0.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "mini-game/mini-game.js" %}"></script>
+    {% endcomment %}
+    {% endblock %}
+  </body>
+</html>
+{% endwith %}

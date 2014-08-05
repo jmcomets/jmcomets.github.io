@@ -1,0 +1,20 @@
+@import "base";
+@import "footer";
+
+.link-new-post {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 1em 10em;
+  padding: 0.4em 0;
+  background-color: @link-new-post-bg-color;
+  color: @link-new-post-color;
+  &:hover {
+    background-color: darken(@link-new-post-bg-color, 10%);
+    color: lighten(@link-new-post-color, 50%);
+    text-decoration: none;
+  }
+}
+
+@link-new-post-bg-color: @footer-bg-color;
+@link-new-post-color: darken(@link-new-post-bg-color, 40%);

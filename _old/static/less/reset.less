@@ -1,0 +1,43 @@
+* {
+  font-size: @base-font-size;
+  font-family: @base-font;
+  color: @base-color;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  line-height: 1.5;
+  background-color: @base-bg-color;
+}
+
+// Opera fix
+body:before {
+  content: "";
+  height: 100%;
+  float: left;
+  width: 0;
+  margin-top: -32767px;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+
+  caption, th {
+    text-align: center;
+  }
+
+  td {
+    text-align: left;
+  }
+
+  caption, th, td {
+    vertical-align: middle;
+  }
+}
+
+a img {
+  border: none;
+}

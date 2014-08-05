@@ -1,0 +1,9 @@
+{% load markup %}
+
+<article class="post">
+  <h4 class="post-title">{{ post.title }}</h4>
+  <div class="post-content">
+    {{ post.content | markdown:"safe" }}
+  </div>
+  <small class="post-date">Created on {{ post.created_on }}</small>
+</article>
