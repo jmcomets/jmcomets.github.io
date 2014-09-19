@@ -37,6 +37,33 @@ reviewing my PR.
 There's nothing like experiencing what you've always heard about.
 
 ## Contribute to the software you use
+
+Mainly for open source software that is. During my internship I was frequently
+in contact with members of the Ruby community, mainly due to issues with their
+software. There's nothing more annoying than finding an awesome gem (library)
+that does exactly what you want, with few code/configuration...and it doesn't
+work.
+
+In my case, instead of giving up and looking for something else, stubborn as I
+can be, I decided to fix the issue most of the time. Now with Github, this is
+rather simple: fork, commit and pull-request. Nothing new compared to my
+company's workflow at the time, which was rather comfortable.
+
+- TODO: add references and links to github issues, be more specific on problems
+
 ## Use the latest tools that fit you best
 ## Fear the unknown
 ## Bond with your team
+
+When you're in a large company with many issues and ongoing conflicts, you
+can't always take the time to get to know the people you work with. And that
+sucks. Obviously, when you're simply trying to get your product on track and
+deal with minor bugs with customers or even deciding on the next course of
+action for the product, well you're not really thinking about next month's
+check and how you can make it bigger. No, you're in a company who isn't old
+enough to categorize people and have their whole career planned out...and
+therefore **dehumanized**. You're in a company who values one-on-one respect
+and self-development through your work. So bond with your team! Enjoy it while
+you can. ;)
+
+- TODO: make this a little cleaner, it's still at a pretty ugly state, too superficial
