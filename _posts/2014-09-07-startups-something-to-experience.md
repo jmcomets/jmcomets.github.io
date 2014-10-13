@@ -51,8 +51,6 @@ company's workflow at the time, which was rather comfortable.
 
 - TODO: add references and links to github issues, be more specific on problems
 
-## Use the latest tools that fit you best
-## Fear the unknown
 ## Bond with your team
 
 When you're in a large company with many issues and ongoing conflicts, you
@@ -67,3 +65,8 @@ and self-development through your work. So bond with your team! Enjoy it while
 you can. ;)
 
 - TODO: make this a little cleaner, it's still at a pretty ugly state, too superficial
+
+## Use the latest tools that fit you best
+## Fear the unknown
+
+Yep, didn't really feel like filling this in, since it seems a bit obvious.
