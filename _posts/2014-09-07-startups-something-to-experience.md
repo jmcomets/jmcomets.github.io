@@ -49,8 +49,6 @@ can be, I decided to fix the issue most of the time. Now with Github, this is
 rather simple: fork, commit and pull-request. Nothing new compared to my
 company's workflow at the time, which was rather comfortable.
 
-- TODO: add references and links to github issues, be more specific on problems
-
 ## Bond with your team
 
 When you're in a large company with many issues and ongoing conflicts, you
@@ -63,8 +61,6 @@ enough to categorize people and have their whole career planned out...and
 therefore **dehumanized**. You're in a company who values one-on-one respect
 and self-development through your work. So bond with your team! Enjoy it while
 you can. ;)
-
-- TODO: make this a little cleaner, it's still at a pretty ugly state, too superficial
 
 ## Use the latest tools that fit you best
 ## Fear the unknown
