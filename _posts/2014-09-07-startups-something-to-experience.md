@@ -63,6 +63,7 @@ and self-development through your work. So bond with your team! Enjoy it while
 you can. ;)
 
 ## Use the latest tools that fit you best
+
 ## Fear the unknown
 
 Yep, didn't really feel like filling this in, since it seems a bit obvious.
