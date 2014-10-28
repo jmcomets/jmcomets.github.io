@@ -24,16 +24,18 @@ features.
 Here's a snippet directly from the website's source code, adding a "categories"
 command allowing me to easily list categories currently added:
 
-    class Command(BaseCommand):
-        help = 'List all categories'
-        def handle(self):
-              categories = Category.objects.all()
-              if not categories:
-                  self.stdout.write('No categories available\n')
-              else:
-                  self.stdout.write('Categories:\n')
-              for category in categories:
-                  self.stdout.write('- %s\n' % category)
+{% highlight python %}
+class Command(BaseCommand):
+    help = 'List all categories'
+    def handle(self):
+          categories = Category.objects.all()
+          if not categories:
+              self.stdout.write('No categories available\n')
+          else:
+              self.stdout.write('Categories:\n')
+          for category in categories:
+              self.stdout.write('- %s\n' % category)
+{% endhighlight %}
 
 I don't know how this could be more explicit, and even so, this performs many
 implicit actions which helps you focus on the important code rather than the
@@ -54,3 +56,5 @@ boilerplate. Here's what happens when calling this command:
    categories", I get the help message defined above "List all categories".
 
 Cool huh ? :)
+
+EDIT: this website is now hosted my Github pages, therefore runs on [Jekyll](http://jekyllrb.com/).
