@@ -47,19 +47,25 @@ use this problem to illustrate parallelism benefits.
 
 Keeping it simple as always, here's what we'll do:
 
-    def pi(nb_iters):
-        hits_in_unit_circle = throw_darts_in_unit_square(nb_iters)
-        return hits_in_unit_circle * 4 / float(nb_iters)
+{% highlight python %}
+def pi(nb_iters):
+    hits_in_unit_circle = throw_darts_in_unit_square(nb_iters)
+    return hits_in_unit_circle * 4 / float(nb_iters)
+{% endhighlight %}
 
 We'll be focusing on optimizing `throw_darts_in_unit_square`, which holds most
-of the problem's complexity: throwing an infinite number of darts.
+of the problem's complexity: throwing a large number of darts.
 
 ## Pure python
 
-    def throw_darts_pure_python(amount):
-        hits = 0
-        for _ in range(int(amount)):
-            x = random.uniform(0, 1)
-            y = random.uniform(0, 1)
-            hits += x**2 + y**2 <= 1
-        return hits
+A pure python version of the dart throw
+
+{% highlight python %}
+def throw_darts_pure_python(amount):
+    hits = 0
+    for _ in range(int(amount)):
+        x = random.uniform(0, 1)
+        y = random.uniform(0, 1)
+        hits += x**2 + y**2 <= 1
+    return hits
+{% endhighlight %}
