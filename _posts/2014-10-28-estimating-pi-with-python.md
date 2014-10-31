@@ -53,8 +53,8 @@ def pi(nb_iters):
     return hits_in_unit_circle * 4 / float(nb_iters)
 {% endhighlight %}
 
-We'll be focusing on optimizing `throw_darts_in_unit_square`, which holds most
-of the problem's complexity: throwing a large number of darts.
+We'll be focusing on optimizing `throw_darts_in_unit_square`, holding most of
+the problem's complexity: throwing a large number of darts.
 
 ## Pure python
 
@@ -84,7 +84,7 @@ slow](https://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/)).
 Below is the benchmark results of this version. Note the log scales for both
 the number of iterations and the time complexity of the method. You'll also be
 glad to notice (well, at least I was) that we get a nice linear complexity,
-which is the nature of this problem.
+that corresponds is the nature of the problem.
 
 ![Benchmark for pure python version]({{ site.url }}/assets/img/estimating-pi-with-python/1-7-pure-python.png)
 
@@ -105,20 +105,20 @@ following results are set for 1 000 000 iterations.
 
 You can see that obviously, most of the time is spent inside that 1 million
 long loop (no kidding huh?). I'm a bit surprised by the results, mainly that
-random.uniform() isn't as slow as I expected it to be. It's actually *really
+`random.uniform()` isn't as slow as I expected it to be. It's actually *really
 fast*. That's because the implementation uses a low-level C module. Although
-the difference between the two calls puzzles me...
-
-So the first person that figures out why the first call to `random.uniform()` is faster than the second **gets a pint**.
+the difference between the two calls puzzles me... The first person that
+figures out why the first call to `random.uniform()` is faster than the second
+**gets a pint**.
 
 ## Enter Numpy
 
-Now, you've probably already heard of [Numpy](http://www.numpy.org/), which is
-famous for n-dimension array manipulation (eg. arrays and matrices) in Python.
-There's a lot of things Numpy can do, but in my case I'm just going to be using
-it for optimizing random uniform arrays. Since Numpy is written in C, most of
-the calls are indeed faster than python code. Though we shouldn't forget that
-**there is an overhead to calling C code from Python**.
+Now, you've probably already heard of [Numpy](http://www.numpy.org/), famous
+for n-dimension array manipulation (eg. arrays and matrices) in Python. There's
+  a lot of things Numpy can do, but in my case I'm just going to be using it
+  for optimizing random uniform arrays. Since Numpy is written in C, most of
+    the calls are indeed faster than python code. Though we shouldn't forget
+    that **there is an overhead to calling C code from Python**.
 
 Below is a new version, making use of Numpy's own implementation of random
 module:
@@ -198,3 +198,40 @@ Profiling:
        1           64     64.0      0.0      throw = numpy.vectorize(lambda s: s <= 1, otypes=[numpy.uint8])
        1       628962 628962.0     93.9      hits = throw(xs * xs + ys * ys)
        1         1172   1172.0      0.2      return numpy.sum(hits)
+
+At this point I believe we're near the best trade-off optimization/time spent
+optimizing. The next step for this kind of problem is parallel computing, which
+is fairly easy in this case.
+
+## multiprocessing.Pool
+
+*AKA how to make old, single-core code multi-core in less than 10 minutes.*
+
+    def throw_darts_parallel(amount):
+        pool = multiprocessing.Pool()
+
+        # Compute argument for each worker based on the number of workers. Each
+        # worker should have nearly the same amount of work to do, extra work being
+        # given to the first worker. The number of processes computation is taken
+        # from multiprocessing.pool's __init__ method.
+        nb_processes = os.cpu_count() or 1
+        proc_args = [amount / nb_processes] * nb_processes
+        proc_args[0] += amount % nb_processes # assuming you have at least one core
+
+        # replace throw_darts_func with the desired method of computation
+        return sum(pool.map(throw_darts_func, proc_args))
+
+That's it. I'm not too fast of a typer, but the coding took me about 5 minutes.
+
+## Conclusion
+
+I'm not going to repeat for the n-th time that Python is awesome, cause that's
+what `import antigravity` is for. What I will say is that you can achieve a lot
+with it, and if speed is a major factor, you can easily move the
+allocation/vectorization problems down to the C level with a little more work.
+Moreover, if your problem is easily splittable, you can parallelize the
+computation in a very short amount of time, with little downsides.
+
+All the code used for this article is open-source and available on
+[Github](https://github.com/jmcomets/pi-estimation), should you want to re-use
+it.
