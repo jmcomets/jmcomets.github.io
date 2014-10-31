@@ -207,19 +207,21 @@ is fairly easy in this case.
 
 *AKA how to make old, single-core code multi-core in less than 10 minutes.*
 
-    def throw_darts_parallel(amount):
-        pool = multiprocessing.Pool()
+{% highlight python %}
+def throw_darts_parallel(amount):
+    pool = multiprocessing.Pool()
 
-        # Compute argument for each worker based on the number of workers. Each
-        # worker should have nearly the same amount of work to do, extra work being
-        # given to the first worker. The number of processes computation is taken
-        # from multiprocessing.pool's __init__ method.
-        nb_processes = os.cpu_count() or 1
-        proc_args = [amount / nb_processes] * nb_processes
-        proc_args[0] += amount % nb_processes # assuming you have at least one core
+    # Compute argument for each worker based on the number of workers. Each
+    # worker should have nearly the same amount of work to do, extra work being
+    # given to the first worker. The number of processes computation is taken
+    # from multiprocessing.pool's __init__ method.
+    nb_processes = os.cpu_count() or 1
+    proc_args = [amount / nb_processes] * nb_processes
+    proc_args[0] += amount % nb_processes # assuming you have at least one core
 
-        # replace throw_darts_func with the desired method of computation
-        return sum(pool.map(throw_darts_func, proc_args))
+    # replace throw_darts_func with the desired method of computation
+    return sum(pool.map(throw_darts_func, proc_args))
+{% endhighlight %}
 
 That's it. I'm not too fast of a typer, but the coding took me about 5 minutes.
 
