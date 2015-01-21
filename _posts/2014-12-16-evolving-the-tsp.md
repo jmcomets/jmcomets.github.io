@@ -25,6 +25,40 @@ approach. Still though, it was an **interesting exercise**.
 
 # Genetic algorithm
 
+There are many things to say concerning genetic algorithms, so I'll try to keep
+it short and to the point.
+
+Genetic algorithms (GAs) make use of an *evolutive process* for a *population
+of solutions* (or genomes, or individuals -- there's a bit of biological
+terminology). GAs also produce somewhat "suboptimal" solution to the problem.
+
+You can use a GA in multiple cases, the two big use cases in my opinion being:
+
+1. the solution set is too big for brute-force
+2. you have no idea how to find a good solution
+
+There are a few things you need to be able to do:
+
+- generate a random set of solutions
+- estimate how good a solution is, or at least compare two solutions
+- slightly and randomly modify a solution, changing how good it is
+- combine two solutions somehow, making a "child" solution
+
+Here's a bit of pseudocode/python describing what a genetic algorithm usually
+looks like:
+
+{% highlight python %}
+population = random_population(population_size)
+for _ in range(nb_iterations):
+    population = selection(population, nb_selected)
+    population = reproduction(population, population_size)
+{% endhighlight %}
+
+And that's it! You mainly need to implement selection/reproduction, which are
+the two methods you'll need to think about (random_population is fairly
+straightforward in most cases). You'll notice the variety of parameters, which
+is probably the weirdest thing about GAs: **they need a bunch of parameters**.
+
 <!-- TODO: explain the process (combining gradient descent and random search) -->
 
 In the case of the TSP, any permutation of cities is in fact a solution to the
