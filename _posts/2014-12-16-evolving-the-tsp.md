@@ -122,13 +122,99 @@ def selection(population, fitness_f, popsize):
     return new_population
 {% endhighlight %}
 
-
 ## Reproduction : genetic operators giving a new population
+
+The reproduction phase of a genetic algorithm is what I believe to be the most
+important phase. Now some people say the beauty of the evolutionary process is
+the balance between selection and mutation: **that is very true**. I simply
+think that the selection process is further from the problem that the
+reproduction phase.
+
+This phase can be describe as follows: given a certain population of parents,
+combine them together following a certain strategy to produce the new
+population for the next iteration of the algorithm.
+
+Again, there are many ways to do this, a few notable ones are:
+
+1. monogamous and mortal: parents are "married" and have a number of children
+   (random distribution), and have a certain probability of dying. This
+   situation follows our current western model and the probability distribution
+   is usually mirrored from actual statistics.
+2. selective, immortal and polygamous: parents have children with others until
+   the population limit is reached.
+
+In the case of this problem, I chose to go with the second version, based on
+the simplicity of the problem.
+
 ### Mutation
+
+The mutation operator consists in a *slight* modification of a new child's
+genome upon creation. This is similar to a random walk and is one of the core
+concepts of an evolutionary algorithm. Imagine if we only had a combination of
+our ancestor's genome, would that conceptually make us any different from
+someone else than, say, our common ancestor?
+
+Like all genetic operators, the mutation has a (generally small) probability of
+happening.
+
+It must affect the genome of the child *slightly* (this is important), if the
+modification is too great, the GA can be assimilated to a random search. In my
+case, I chose to swap the order of two cities to keep the solution somewhat
+similar, yet changing it.
+
+{% highlight python %}
+def mutation(child):
+    i, j = (random.randint(0, len(child) - 1) for _ in range(2))
+    child[i], child[j] = child[j], child[i]
+{% endhighlight %}
+
 ### Cross-over
+
+The cross-over operator is what defines the combination of two parent solutions
+to generate a new child. Think of it as taking genomes and merging them
+together by taking parts of each genome. Once again, there are many ways of
+doing this, I decided to swap a fragment of the genes of both parents and
+choosing one of the two resulting genomes (one being the "opposite" of the
+other).
+
+Like all genetic operators, the cross-over has a probability of happening.
+
+{% highlight python %}
+def crossover(first, second):
+    a, b = 0, 0
+    while not a < b:
+        a, b = (random.randint(0, len(first)-1) for _ in range(2))
+    for i in range(a, b+1):
+        j = second.index(first[i])
+        first[i], second[j] = second[j], first[i]
+    return random.choice((first, second))
+{% endhighlight %}
 
 # Benchmarks
 
+I've included here below the results of running the GA for the TSP with the
+following parameters:
+
+- number of iterations = 200
+- population size = 80
+- selected proportion = 20%
+- cross-over probability = 30%
+- mutation probability = 5%
+
 ## Dataset "uk12"
+
+![Benchmark for uk12, starting at Edinburgh]({{ site.url }}/assets/img/evolving-the-tsp/uk12-Edinburgh.png)
+![Benchmark for uk12, starting at Newcastle]({{ site.url }}/assets/img/evolving-the-tsp/uk12-Newcastle.png)
+![Benchmark for uk12, starting at Oxford]({{ site.url }}/assets/img/evolving-the-tsp/uk12-Oxford.png)
+
 ## Dataset "wg22"
+
+![Benchmark for wg22, starting at Aachen]({{ site.url }}/assets/img/evolving-the-tsp/wg22-Aachen.png)
+![Benchmark for wg22, starting at Kassel]({{ site.url }}/assets/img/evolving-the-tsp/wg22-Kassel.png)
+![Benchmark for wg22, starting at Muenster]({{ site.url }}/assets/img/evolving-the-tsp/wg22-Muenster.png)
+
 ## Dataset "wg59"
+
+![Benchmark for wg59, starting at Bayreuth]({{ site.url }}/assets/img/evolving-the-tsp/wg59-Bayreuth.png)
+![Benchmark for wg59, starting at Bielefeld]({{ site.url }}/assets/img/evolving-the-tsp/wg59-Bielefeld.png)
+![Benchmark for wg59, starting at Bochum]({{ site.url }}/assets/img/evolving-the-tsp/wg59-Bochum.png)
