@@ -21,8 +21,8 @@ that, allow me to address a few remarks:
   to understand it. And that goes for the first viewing, I'm betting on me
   completely changing my mind after the second one.
 
-Now that we're through with the notes, you can close this page and go watch it,
-**spoilers ahead**.
+Now that we're through with the notes, you can close this page and start
+watching it, **spoilers ahead**.
 
 [!Title]({{ site.url/}}/assets/img/mr-nobody-a-retrospective-about-life/title.png)
 
@@ -40,9 +40,9 @@ trauma.
 
 For reference, the pigeon superstition is part of the works of [B. F.
 Skinner][http://en.wikipedia.org/wiki/B._F._Skinner#Superstition_in_the_pigeon],
-an American psychologist from Harvard. An unrelated but amusing anectode:
-Skinner had the unusual idea of using pigeons to guide missiles during the
-second world war.
+an American psychologist from Harvard. An unrelated but amusing fact: Skinner
+had the unusual idea of using pigeons to guide missiles during the second world
+war.
 
 # Plot analysis
 
@@ -50,14 +50,18 @@ Back to our feature presentation: at this point I thought the movie would be
 corny and full of déjà-vus. Turns out I was actually right about part of that
 statement, but we'll see that later on.
 
+The main character is Nemo Nobody, which translates to Nobody Nobody. Such an
+unusual name is probably used to emphasize the blankness of the character, and
+how we should identify ourselves quite seamlessly.
+
 ## The mishmash in time and memory
 
-At first we're thrown into what seems to be multiple possible deaths for Nemo
-Nobody, either by accident (car crash in the lake), by human hand (shot in the
-bath) or by cold nature (asteroid shower). The story now begins with a
-centenarian Nemo waking up in a futuristic world. Nemo is plagued with
-Alzheimer due to his old age, and people seem to be working on keeping his
-memories together before his death.
+At first we're thrown into what seems to be multiple possible deaths for,
+either by accident (car crash in the lake), by human hand (shot in the bath) or
+by cold nature (asteroid shower). The story now begins with a centenarian Nemo
+waking up in a futuristic world. Nemo is plagued with Alzheimer due to his old
+age, and people seem to be working on keeping his memories together before his
+death.
 
 The story's pace increases as Nemo goes through back, forth...and sideways in
 time, living different versions of his life, trying each choice as it presents
@@ -98,9 +102,16 @@ paths due to his past choices and finds love in different ways: altruism, art
 or just passionate love. He finds himself helpless against the universe's
 unforgiving *butterfly effect*, whose consequences range from separating his
 parents to losing the love of his life, becoming paraplegic to suffering a
-deadly car accident. The message is clear as crystal: **life is short, live as
-much as possible**. Old Nemo repeats it himself: *"I'm afraid I haven't lived
-enough"*.
+deadly car accident. The message intended is clear as crystal: **life is short,
+live as much as possible**. Old Nemo repeats it himself: *"I'm afraid I haven't
+lived enough"*.
+
+A large part of the film analyses love and its implications. Each of the three
+love stories Nemo has shows a different aspect, one sided love clearly being
+impossible, no matter how hard the other person tries to work it out. The most
+noticeable version is the story of Nemo and Jean, often overlooked by the
+critics as shallow or empty. To me the blankness of Jean's character reflects
+Nemo's interest in her and his obsession with greatness in that universe.
 
 # General opinion
 
@@ -118,3 +129,8 @@ The romance between Nemo and Anne was probably one of the most passionate and
 convincing I've ever seen on film. It is by far the strongest emotional aspect
 of the film, bringing tears to my eyes when they are *finally* reunited after
 being separated brutally...twice.
+
+In effect, Mr Nobody is a film I would recommend to any pessimist, its raw
+emotional power breaking through the ice and striking the viewer with
+realisations on himself and the world we all live in. The acting of Jared Leto
+is-as usual-flawless, as he battles for
