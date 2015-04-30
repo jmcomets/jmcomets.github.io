@@ -24,7 +24,7 @@ that, allow me to address a few remarks:
 Now that we're through with the notes, you can close this page and start
 watching it, **spoilers ahead**.
 
-[!Title]({{ site.url/}}/assets/img/mr-nobody-a-retrospective-about-life/title.png)
+![Title]({{ site.url }}/assets/img/mr-nobody-an-introspective-about-life/title.png)
 
 # Introduction: the pigeon's association of cause and consequence
 
@@ -36,7 +36,7 @@ the pigeon will quickly wonder *what did i do to deserve this?*. The analogy
 with our own lives is clear, the great question that we ask ourselves after any
 trauma.
 
-![The pigeon's superstition]({{ site.url }}/assets/img/mr-nobody-a-retrospective-about-life/pigeon.png)
+![The pigeon's superstition]({{ site.url }}/assets/img/mr-nobody-an-introspective-about-life/pigeon.png)
 
 For reference, the pigeon superstition is part of the works of [B. F.
 Skinner][http://en.wikipedia.org/wiki/B._F._Skinner#Superstition_in_the_pigeon],
@@ -63,6 +63,8 @@ waking up in a futuristic world. Nemo is plagued with Alzheimer due to his old
 age, and people seem to be working on keeping his memories together before his
 death.
 
+![Old Nemo's struggle for memory]({{ site.url }}/assets/img/mr-nobody-an-introspective-about-life/old.png)
+
 The story's pace increases as Nemo goes through back, forth...and sideways in
 time, living different versions of his life, trying each choice as it presents
 itself. Nemo doesn't seem in control: he'll wake up in bed next to his wife
@@ -78,12 +80,14 @@ focused his interest on displaying consequences rather than causes. Presented
 as is, the story of the angels of Oblivion feels ludicrous, exaggerated to
 mirror Nemo's parents' view on his abilities.
 
+![The angel's silencing touch]({{ site.url }}/assets/img/mr-nobody-an-introspective-about-life/angel.png)
+
 ## Another pursuit of happiness
 
 The plot revolves several elements of Nemo's life
 
 - young Nemo lives a somewhat happy life until an unlikely accident changes his
-  dad, causing his parents to split up
+  dad, eventually causing his parents to split up
 - teenage Nemo lives with one (both) of his parents, searching for young love
 - adult Nemo tries to make sense of his life, striving to be happy in a world
   definitely against him
@@ -92,9 +96,17 @@ These points can be reduced to the simple search of happiness, but the fact
 that they are all consequences of previous events separate the film from the
 other classic *pursuit of happiness* genre (my personal favorite being
 [Life is Beautiful](http://www.imdb.com/title/tt0118799/)). Mr Nobody is a film
-entirely about **choice**, how they affect us.
+entirely about **choice**, and how these ultimately affect us.
 
-## The paths we take, eg. "high on feels"
+As Nemo confronts new choices, the possibilities grow exponentially in front of
+him, displayed metaphorically by the endlessly dividing railroad tracks. Van
+Dormel amusingly divides these choices visually, either through a photograph,
+the toss of a coin, or simply the three different colors for Nemo's three
+possible wives.
+
+![The angel's silencing touch]({{ site.url }}/assets/img/mr-nobody-an-introspective-about-life/colors.png)
+
+## The paths we take
 
 While the storyline is interesting and the message is powerful, nothing makes a
 movie like a deep emotional attachment to the characters. Nemo follows many
@@ -133,4 +145,4 @@ being separated brutally...twice.
 In effect, Mr Nobody is a film I would recommend to any pessimist, its raw
 emotional power breaking through the ice and striking the viewer with
 realisations on himself and the world we all live in. The acting of Jared Leto
-is-as usual-flawless, as he battles for
+is-as usual-flawless, as he battles for happiness.
