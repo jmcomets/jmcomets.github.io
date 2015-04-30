@@ -39,7 +39,7 @@ trauma.
 ![The pigeon's superstition]({{ site.url }}/assets/img/mr-nobody-an-introspective-about-life/pigeon.png)
 
 For reference, the pigeon superstition is part of the works of [B. F.
-Skinner][http://en.wikipedia.org/wiki/B._F._Skinner#Superstition_in_the_pigeon],
+Skinner](http://en.wikipedia.org/wiki/B._F._Skinner#Superstition_in_the_pigeon),
 an American psychologist from Harvard. An unrelated but amusing fact: Skinner
 had the unusual idea of using pigeons to guide missiles during the second world
 war.
