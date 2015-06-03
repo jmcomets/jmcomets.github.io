@@ -33,3 +33,74 @@ before the computation took place. The resulting noise for the point is given
 by interpolating these vectors by the distance of the corner to the point. I'll
 get back to this process in detail later on, since it seems hard to grasp
 without an example.
+
+## Pseudorandom vector generation
+
+Using Numpy, generating a matrix of random floating-point numbers is pretty
+straightforward:
+
+{% highlight python %}
+grads = np.random.random_sample((nb_gradients + 1, 2))
+{% endhighlight %}
+
+Now we have a matrix whose elements are in the range (-1, 1). We need them to
+be in the range (0, 1).
+
+{% highlight python %}
+grads = 2 * grads - 1
+{% endhighlight %}
+
+Now we need to make sure that every row of the matrix forms a unit vector. To
+do this, let's simply divide each component by the norm of the full vector.
+
+{% highlight python %}
+for i, row in enumerate(grads):
+    x, y = row
+    norm = dot_product(x, y, x, y) ** .5
+    grads[i] = x / norm, y / norm
+{% endhighlight %}
+
+The `dot_product` function will be defined later on as one of the utility
+functions. It computes the euclidean dot product of two 2-dimensional vectors.
+
+## Hashing a position in the grid
+
+In order to choose a pseudorandom vector for a position, one must be able to
+map a discrete grid position to a row index in the gradients matrix. Ken Perlin
+originally used a shuffled set of integers and a simple modulo to achieve this.
+Here's the generating of a such permutation set using Numpy.
+
+{% highlight python %}
+permutations = np.arange(nb_permutations, dtype=np.uint8)
+np.random.shuffle(permutations)
+{% endhighlight %}
+
+One trick used by Ken was to double the permutation set, in order to easily
+combine the hashed x and y positions to choose a permutation (by a simple sum
+of their hashes).
+
+{% highlight python %}
+permutations = np.append(permutations, permutations)
+{% endhighlight %}
+
+The idea is then to retrieve: `ps[ps[(x % nb_ps)] + (y % nb_ps)]`.
+
+## The classic noise function
+
+{% highlight python %}
+xi, yi = floor(x), floor(y)
+
+# position -> hash -> gradient
+ps, nb_ps = permutations, nb_permutations
+grads, nb_grads = gradients, len(gradients)
+x0, y0 =      xi  % nb_ps,      yi  % nb_ps
+x1, y1 = (1 + xi) % nb_ps, (1 + yi) % nb_ps
+g00 = grads[ps[ps[x0] + y0] % nb_grads]
+g01 = grads[ps[ps[x0] + y1] % nb_grads]
+g10 = grads[ps[ps[x1] + y0] % nb_grads]
+g11 = grads[ps[ps[x1] + y1] % nb_grads]
+
+# corner influences
+dx, dy = x - xi, y - yi
+return interpolate(dx, dy, g00, g01, g10, g11)
+{% endhighlight %}
