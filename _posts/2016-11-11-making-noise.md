@@ -60,8 +60,8 @@ for i, row in enumerate(grads):
     grads[i] = x / norm, y / norm
 {% endhighlight %}
 
-The `dot_product` function will be defined later on as one of the utility
-functions. It computes the euclidean dot product of two 2-dimensional vectors.
+The `dot_product` function simply computes the euclidean dot product of two
+2-dimensional vectors.
 
 ## Hashing a position in the grid
 
