@@ -101,21 +101,22 @@ This last step is the only one that needs a bit of thought, the rest is as
 follows:
 
 {% highlight python %}
-xi, yi = floor(x), floor(y)
+def perlin_noise(x, y, permutations, gradients):
+  xi, yi = floor(x), floor(y)
 
-# position -> hash -> gradient
-ps, nb_ps = permutations, len(permutations)
-grads, nb_grads = gradients, len(gradients)
-x0, y0 =      xi  % nb_ps,      yi  % nb_ps
-x1, y1 = (1 + xi) % nb_ps, (1 + yi) % nb_ps
-g00 = grads[ps[ps[x0] + y0] % nb_grads]
-g01 = grads[ps[ps[x0] + y1] % nb_grads]
-g10 = grads[ps[ps[x1] + y0] % nb_grads]
-g11 = grads[ps[ps[x1] + y1] % nb_grads]
+  # position -> hash -> gradient
+  ps, nb_ps = permutations, len(permutations)
+  grads, nb_grads = gradients, len(gradients)
+  x0, y0 =      xi  % nb_ps,      yi  % nb_ps
+  x1, y1 = (1 + xi) % nb_ps, (1 + yi) % nb_ps
+  g00 = grads[ps[ps[x0] + y0] % nb_grads]
+  g01 = grads[ps[ps[x0] + y1] % nb_grads]
+  g10 = grads[ps[ps[x1] + y0] % nb_grads]
+  g11 = grads[ps[ps[x1] + y1] % nb_grads]
 
-# corner influences
-dx, dy = x - xi, y - yi
-return interpolate(dx, dy, g00, g01, g10, g11)
+  # corner influences
+  dx, dy = x - xi, y - yi
+  return interpolate(dx, dy, g00, g01, g10, g11)
 {% endhighlight %}
 
 I'll leave that interpolation bit for exercise, it wouldn't be any fun otherwise!
