@@ -14,7 +14,7 @@ vars:
   social:
     github: jmcomets
     #bitbucket: jmcomets
-    #hacker_news:
+    hacker_news: jmcomets
     #stackexchange:
     stackoverflow: 1441984
     twitter: jmcomets
