@@ -76,22 +76,35 @@ np.random.shuffle(permutations)
 {% endhighlight %}
 
 One trick used by Ken was to double the permutation set, in order to easily
-combine the hashed x and y positions to choose a permutation (by a simple sum
-of their hashes).
+combine the hashed x and y positions to choose a permutation. This is weird at
+first, but in the end it's just a clever hack that simply involves adding the
+position to a hash, looping over the permutations using a modulo.
 
 {% highlight python %}
 permutations = np.append(permutations, permutations)
+
+x_hash = permutations[x % len(permutations)]
+xy_hash = permutations[x_hash + (y % len(permutations))]
 {% endhighlight %}
 
-The idea is then to retrieve: `ps[ps[(x % nb_ps)] + (y % nb_ps)]`.
+## Wrapping up: the noise function
 
-## The classic noise function
+Once you have the hashing for an arbitrary position and the gradient vectors,
+the implementation of the noise function is rather straightforward:
+
+1. convert the point from world-coordinates to local-coordinates
+2. compute hashes for each corner around the point
+3. take the gradient vectors for each hash
+4. interpolate between the gradients
+
+This last step is the only one that needs a bit of thought, the rest is as
+follows:
 
 {% highlight python %}
 xi, yi = floor(x), floor(y)
 
 # position -> hash -> gradient
-ps, nb_ps = permutations, nb_permutations
+ps, nb_ps = permutations, len(permutations)
 grads, nb_grads = gradients, len(gradients)
 x0, y0 =      xi  % nb_ps,      yi  % nb_ps
 x1, y1 = (1 + xi) % nb_ps, (1 + yi) % nb_ps
@@ -104,3 +117,5 @@ g11 = grads[ps[ps[x1] + y1] % nb_grads]
 dx, dy = x - xi, y - yi
 return interpolate(dx, dy, g00, g01, g10, g11)
 {% endhighlight %}
+
+I'll leave that interpolation bit for exercise, it wouldn't be any fun otherwise!
