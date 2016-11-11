@@ -4,6 +4,7 @@ highlighter: rouge
 url: http://jmcomets.com
 lsi: false
 exclude: [LICENSE, CNAME, README.md, .gitignore]
+comments: true
 
 # Theme customization - please change from the defaults!
 vars:
