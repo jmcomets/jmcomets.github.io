@@ -2,14 +2,18 @@
 layout: default
 ---
 
-<p class="meta">
+<div class="page-header">
+<h1>{{ page.title }}</h1>
+
+<p class="text-right">
+  Posted on
   {{ page.date | date: "%B %d, %Y" }} 
   <a href="/">
     <i class="home fa fa-home"></i>
   </a>
 </p>
 
-<h1 class="title">{{ page.title }}</h1>
+</div>
 
 <div id="post">
   {{ content }}

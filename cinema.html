@@ -1,0 +1,19 @@
+---
+layout: default
+title: Cinema
+---
+
+<div data-ng-app="IMDbInfo">
+  <div data-ng-controller="RatingsController" class="list-group">
+    {% raw %}
+    <div data-ng-repeat="rating in ratings" class="list-group-item {{ 'list-group-item-' + ratingClass(rating.rating) }}">
+      <a href="{{ rating.link }}">{{ rating.title }}</a>
+      <span class="badge">{{ rating.rating }}</span>
+      <p class="list-group-item-text">
+      </p>
+    </div>
+    {% endraw %}
+  </div>
+</div>
+
+<script type="text/javascript" src="/assets/js/apps/imdb_info.js"></script>
